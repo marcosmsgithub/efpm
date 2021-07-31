@@ -14,7 +14,7 @@
 #include <chrono>
 #include <cstdlib>
 
-constexpr auto n = 3000;
+constexpr auto n = 1000;
 constexpr auto low_bound = 0;
 constexpr auto up_bound = 1000000;
 
