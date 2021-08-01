@@ -514,16 +514,7 @@ int main() {
             cost[i][j]=di(dre);
         }
     }
-
-    /*int z1,z2;
-
-    for (long int k= 0; k < z; ++k)
-    {
-        z1=rand()% (n-1)+0;
-        z2=rand()% (n-1)+0;
-        cost[z1][z2]=0;
-        
-    }*/
+    
 
     auto startm = chrono::system_clock::now();
 
@@ -561,19 +552,19 @@ int main() {
         }
     }
 
-    int mat=0;
+    int sw=0;
     for(long int i=0;i<n;i++){
         
-            mat=mat+W[i][i];           
+            sw=sw+W[i][i];           
         
     }
-    cout<< "mat=" <<mat<<endl;
+    cout<< "social welfare=" <<sw<<endl;
 
 
     cout<< "------------------------" <<endl;
     cout<< "Bellman-Ford" <<endl;
 
-    //auto startb = chrono::system_clock::now();
+    auto startb = chrono::system_clock::now();
 
     vector< vector<pair<long int, double> > > adjList;
     for(long int i = 0; i < n+1; i++)
@@ -593,7 +584,7 @@ int main() {
         }
     }
 
-    auto startb = chrono::system_clock::now();
+    
     VD distb(n+1);
     distb[0] = 0;
     for (long int i=1;i<=n;i++)
@@ -640,94 +631,10 @@ int main() {
     cout<<"revenue: "<<revb <<endl;;
     cout<< "------------------------" <<endl;
 
-    //cout<< "Algorithm 1" << endl;
+    
+    cout<< "ImpAlgoEFP" << endl;
 
-    //auto start1 = chrono::system_clock::now();
-
-    /*VVD U1(n, VD(n) );
-    for (long int i=0; i<n; i++)
-    {
-        for(long int j=0; j<n; j++)
-        {
-            U1[i][j] = W[i][j] - W[j][j];
-        }
-    }
-
-
-    VD y0(n);
-    VD y1(n);
-    for(long int i=0;i<n;i++)
-        {y0[i]=0;}
-
-    int cont1=0;
-    for (long int i=0; i < n; i++)
-    {
-        y1[i]=0;
-        for (long int j = 0; j < n; j++)
-        {
-            if (U1[i][j] > y1[i])
-            {
-                y1[i] = U1[i][j];
-                cont1=1;
-            }
-        }
-    }
-
-    long int it1=1;
-    while (cont1==1)
-    {
-        cont1=0;
-        it1++;
-        for(long int i=0;i<n;i++)
-            {
-                y0[i]=y1[i];
-            }
-        for (long int i=0; i < n; i++)
-            {
-                for (long int j = 0; j < n; j++)
-                    {
-                        if (y0[j]+U1[i][j] > y1[i])
-                        {
-                            y1[i] = y0[j]+U1[i][j];
-                        }
-                    }
-            }
-        for (long int i=0;i<n;i++)
-        {
-            if (y1[i] > y0[i])
-            {
-                cont1=1;
-                break;
-            }
-        }
-    }
-
-    VD p1(n);
-    for(long int i=0;i<n;i++)
-    {
-        p1[i]=W[i][i]-y1[i];
-    }
-
-    chrono::duration<double> elapsed_time1 = chrono::system_clock::now() - start1;
-    double execution_time1 = elapsed_time1.count();
-
-    cout << "execution_time = "
-    << fixed << setprecision(4)
-    << execution_time1 << endl;
-
-    cout<<"iterations: "<<it1<<endl;
-
-    long int rev1=0;
-    for(long int i=0;i<n;i++)
-    {
-        rev1=rev1+p1[i];
-    }
-    cout<<"revenue: "<<rev1 << endl;
-    cout<< "------------------------" <<endl;*/
-
-    cout<< "AlgoEFP" << endl;
-
-    //auto start2 = chrono::system_clock::now();
+    auto start2 = chrono::system_clock::now();
 
     VVD U2(n, VD(n) );
     for (long int i=0; i<n; i++)
@@ -738,7 +645,7 @@ int main() {
         }
     }
 
-    auto start2 = chrono::system_clock::now();
+    
     VD y2(n);
     for(long int i=0;i<n;i++)
         {y2[i]=0;}
@@ -785,54 +692,7 @@ int main() {
     cout<<"revenue: "<<rev2 << endl;
     cout<< "------------------------" <<endl;
 
-    /*cout<< "Algorithm 3" << endl;
-
-    auto start3 = chrono::system_clock::now();
-
-    VD p3(n);
-
-    for(long int i=0;i<n;i++)
-    {
-        p3[i]=W[i][i];
-    }
-
-
-    long int it3=0;
-    int cont3=1;
-    while(cont3==1)
-    {
-        cont3=0;
-        it3++;
-        for (long int i=0; i < n; i++)
-        {
-            for (long int j = 0; j < n; j++)
-                {
-                    if (W[i][j]-p3[j] > W[i][i]-p3[i])
-                    {
-                        p3[i] = p3[i]-(W[i][j]-p3[j] - (W[i][i]-p3[i]));
-                        cont3=1;
-                    }
-                }
-        }
-    }
-
-    chrono::duration<double> elapsed_time3 = chrono::system_clock::now() - start3;
-    double execution_time3 = elapsed_time3.count();
-
-    cout << "execution_time = "
-    << fixed << setprecision(4)
-    << execution_time3 << endl;
-
-    cout<<"iterations: "<<it3<<endl;
-
-    long int rev3=0;
-    for(long int i=0;i<n;i++)
-    {
-        rev3=rev3+p3[i];
-    }
-    cout<<"revenue: "<<rev3<<endl;
-    cout<< "------------------------" <<endl;*/
-
+    
     return 0;
 
 }
