@@ -1,4 +1,4 @@
-// Code developed by James Payor available at
+// Code developed by James Payor available at https://github.com/jamespayor/weighted-bipartite-perfect-matching
 
 #ifndef HUNGARIAN_H
 #define HUNGARIAN_H
