@@ -486,20 +486,7 @@ const std::vector<long int> hungarianMinimumWeightPerfectMatching(const long int
 }
 
 
-int main() {
-
-    //cout<< "------------------------" <<endl;
-    //cout<< "n = " << n << endl;
-
-    /*int n;
-    cout<< "------------------------" <<endl;
-    cout<< "n = " << endl;
-    cin>>n;
-
-    int z;
-    cout<< "------------------------" <<endl;
-    cout<< "z = " << endl;
-    cin>>z;*/
+int main() {    
 
 
     auto seed = chrono::system_clock::now().time_since_epoch().count();//seed
@@ -558,7 +545,7 @@ int main() {
             sw=sw+W[i][i];           
         
     }
-    cout<< "social welfare=" <<sw<<endl;
+    cout<< "social welfare: " <<sw<<endl;
 
 
     cout<< "------------------------" <<endl;
