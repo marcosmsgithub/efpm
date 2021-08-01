@@ -1,3 +1,5 @@
+// Code developed by James Payor available at
+
 #ifndef HUNGARIAN_H
 #define HUNGARIAN_H
 
